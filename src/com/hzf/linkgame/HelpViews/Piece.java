@@ -1,4 +1,4 @@
-package com.hzf.linkgame.HelperViews;
+package com.hzf.linkgame.HelpViews;
 
 import android.graphics.Point;
 
