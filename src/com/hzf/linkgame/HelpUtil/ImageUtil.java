@@ -12,6 +12,7 @@ import java.util.Random;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.hzf.linkgame.R;
 import com.hzf.linkgame.HelpViews.PieceImage;
@@ -42,7 +43,7 @@ public class ImageUtil {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+			Log.e("ImageUtil", e.getMessage().toString());
 			return null;
 		}
 	}
@@ -78,7 +79,7 @@ public class ImageUtil {
 			size += 1;
 		}
 		
-		List<Integer> playImageValues = getRandomValues(imageValues, size);
+		List<Integer> playImageValues = getRandomValues(imageValues, size/2);
 		playImageValues.addAll(playImageValues);
 		Collections.shuffle(playImageValues);
 		return playImageValues;

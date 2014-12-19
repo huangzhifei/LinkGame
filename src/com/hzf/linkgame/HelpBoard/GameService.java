@@ -18,19 +18,19 @@ public interface GameService {
 	/*
 	 * 控制游戏的开始
 	 */
-	void start();
+	public void start();
 	
 	/*
 	 * 定义一个接口用来返回一个二维数组
 	 * @return 存放方块对象的二维数组
 	 */
-	Piece[][] getPieces();
+	public Piece[][] getPieces();
 	
 	/*
 	 * 判断piece[][]数组中是否还存在对象
 	 * @return 返回true表示还存在，false表示不存在 
 	 */
-	boolean hasPieces();
+	public boolean hasPieces();
 	
 	/*
 	 * 根据触摸位置，查找出与其对应的piece对象
@@ -38,7 +38,7 @@ public interface GameService {
 	 * @param touchY 触摸位置的y坐标
 	 * @return 返回相应的piece，没有返回null
 	 */
-	Piece findPiece(float touchX, float touchY);
+	public Piece findPiece(float touchX, float touchY);
 	
 	/*
 	 * 判断两个piece是否可以相连
@@ -46,5 +46,5 @@ public interface GameService {
 	 * @param p2 第二个piece对象
 	 * @return 如果可以相连返回LinkInfo对象, 否则返回null
 	 */
-	LinkInfo link(Piece p1, Piece p2);
+	public LinkInfo link(Piece p1, Piece p2);
 }

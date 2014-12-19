@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 	
 	// 游戏配置对象
 	private GameConf config;
-	// 游戏业务逻辑接口
+	
 	private GameService gameService;
 	// 游戏界面
 	private GameView gameView;
@@ -78,6 +78,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_main);
 		// 初始化界面
 		init();
@@ -86,9 +87,10 @@ public class MainActivity extends Activity {
 	// 初始化游戏的方法
 	private void init()
 	{
-		config = new GameConf(8, 9, 2, 10 , 100000, this);
+		// 配置游戏面板参数
+		config = new GameConf(8, 9, 2, 10 , GameConf.DEFAULT_TIME, this);
 		// 得到游戏区域对象
-		gameView = (GameView) findViewById(R.id.gameView);
+		gameView = (GameView)findViewById(R.id.gameView);
 		// 获取显示剩余时间的文本框
 		timeTextView = (TextView) findViewById(R.id.timeText);
 		// 获取开始按钮

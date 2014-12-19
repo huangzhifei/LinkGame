@@ -20,16 +20,22 @@ public class GameConf {
 	// 记录游戏的默认时长为100s
 	public static final int DEFAULT_TIME = 100;
 	
+	//二维地图board的大小，行数
 	private int xSize;
 	
+	//二维地图board的大小，列数
 	private int ySize;
 	
+	//二维地图中左上角x坐标
 	private int beginImageX;
 	
+	//二维地图中左上角y坐标
 	private int beginImageY;
 	
+	//游戏总时间限制
 	private int gameTime;
 	
+	//activity对象
 	private Context context;
 	
 	public GameConf(int xSize, int ySize, int beginImageX, int beginImageY,

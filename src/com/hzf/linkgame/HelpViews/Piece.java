@@ -68,7 +68,7 @@ public class Piece {
 	/*
 	 * 设置pieceImage属性
 	 */
-	public final PieceImage getImage(){
+	public final PieceImage getPieceImage(){
 		return pieceImage;
 	}
 	
@@ -79,8 +79,8 @@ public class Piece {
 	//获取piece的中心点
 	public Point getCenter()
 	{
-		double x = getImage().getImage().getWidth() * 0.5 + getBeginX();
-		double y = getImage().getImage().getHeight() * 0.5 + getBeginY();
+		double x = getPieceImage().getImage().getWidth() * 0.5 + getBeginX();
+		double y = getPieceImage().getImage().getHeight() * 0.5 + getBeginY();
 		
 		return new Point((int)x, (int)y);
 	}
@@ -92,6 +92,6 @@ public class Piece {
 			return false;
 		}
 		
-		return pieceImage.getImageID() == rhs.getImage().getImageID();
+		return pieceImage.getImageID() == rhs.getPieceImage().getImageID();
 	}
 }
