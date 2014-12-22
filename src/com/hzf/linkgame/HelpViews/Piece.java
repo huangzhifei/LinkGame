@@ -7,7 +7,7 @@ import android.graphics.Point;
  */
 public class Piece {
 	
-	//保存方块对象的所对应的图像
+	//保存方块对象的对应的图像的信息 image + id
 	private PieceImage pieceImage;
 	
 	//方块的左上角x、y坐标
@@ -16,6 +16,7 @@ public class Piece {
 	//对象piece[][]数组的下标
 	private int indexX, indexY;
 	
+	//第几行几列的元素
 	public Piece(int iX, int iY)
 	{
 		this.indexX = iX;
@@ -85,6 +86,7 @@ public class Piece {
 		return new Point((int)x, (int)y);
 	}
 	
+	//要判断两图像是不是相同，只要判断他背后绑定的id值是否一样就ok了
 	public boolean isSameImage(Piece rhs)
 	{
 		if( pieceImage == null && rhs.pieceImage != null )

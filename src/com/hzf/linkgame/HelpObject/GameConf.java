@@ -8,7 +8,7 @@ import android.content.Context;
 /**
  * @author huangzhifei
  * @ClassName: GameConf
- * @Description: http://blog.csdn.net/ac_huang
+ * @Description: http://blog.csdn.net/ac_huang， 游戏配置信息
  * @date 2014-12-9 下午9:54:08 
  */
 public class GameConf {
@@ -38,6 +38,7 @@ public class GameConf {
 	//activity对象
 	private Context context;
 	
+	//面板长、宽、开始x、y坐标、游戏时间、context
 	public GameConf(int xSize, int ySize, int beginImageX, int beginImageY,
 			int gameTime, Context context)
 	{

@@ -7,13 +7,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.hzf.linkgame.R;
 import com.hzf.linkgame.HelpBoard.GameService;
 import com.hzf.linkgame.HelpObject.LinkInfo;
 import com.hzf.linkgame.HelpUtil.ImageUtil;
@@ -30,32 +30,25 @@ public class GameView extends View {
 	private Piece selectedPiece;
 	// 连接信息对象
 	private LinkInfo linkInfo;
+	// 画连接线
 	private Paint paint;
 	// 选中标识的图片对象
 	private Bitmap selectImage;
-
-	public GameView(Context context)
-	{
-		super(context);
-	}
-	
-	public GameView(Context context, AttributeSet attrs, int defStyle)
-	{
-		super(context, attrs, defStyle);
-	}
 	
 	public GameView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
 		this.paint = new Paint();
 		// 使用位图平铺作为连接线条
-		this.paint.setColor(Color.RED);
+		//this.paint.setColor(Color.RED);
 		
-//		this.paint.setShader(new BitmapShader(BitmapFactory
-//			.decodeResource(context.getResources(), R.drawable.heart)
-//			, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
+		this.paint.setShader(new BitmapShader(BitmapFactory
+			.decodeResource(context.getResources(), R.drawable.heart)
+			, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
 		// 设置连接线的粗细
 		this.paint.setStrokeWidth(6);
+		
+		//仔细看，java中调用静态函数的方法不是使用::而是直接类名加点
 		this.selectImage = ImageUtil.getSelectImage(context);
 	}
 

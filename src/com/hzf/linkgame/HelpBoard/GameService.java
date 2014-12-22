@@ -10,7 +10,7 @@ import com.hzf.linkgame.HelpViews.Piece;
 /**
  * @author huangzhifei
  * @ClassName: GameService
- * @Description: http://blog.csdn.net/ac_huang
+ * @Description: http://blog.csdn.net/ac_huang  接口类
  * @date 2014-12-9 下午9:21:37 
  */
 public interface GameService {

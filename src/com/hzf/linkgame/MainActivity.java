@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 	private void init()
 	{
 		// 配置游戏面板参数
-		config = new GameConf(8, 9, 2, 10 , GameConf.DEFAULT_TIME, this);
+		config = new GameConf(12, 12, 6, 10 , GameConf.DEFAULT_TIME, this);
 		// 得到游戏区域对象
 		gameView = (GameView)findViewById(R.id.gameView);
 		// 获取显示剩余时间的文本框

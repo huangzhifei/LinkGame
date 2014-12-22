@@ -13,6 +13,8 @@ import com.hzf.linkgame.HelpBoard.AbstractBoard;
 import com.hzf.linkgame.HelpBoard.GameService;
 import com.hzf.linkgame.HelpObject.GameConf;
 import com.hzf.linkgame.HelpObject.LinkInfo;
+
+import android.R.integer;
 import android.graphics.Point;
 
 import com.hzf.linkgame.HelpViews.Piece;
@@ -29,6 +31,8 @@ public class GameServiceImpl implements GameService {
 	
 	private GameConf config;
 	
+	public static final int DEFAULT_BOARD_TYPE = 4;
+	
 	public GameServiceImpl(GameConf config)
 	{
 		this.config = config;
@@ -43,7 +47,7 @@ public class GameServiceImpl implements GameService {
 		AbstractBoard board = null;
 		Random random = new Random();
 		// 获取一个随机数, 可取值0、1、2、3四值。
-		int index = random.nextInt(4);
+		int index = random.nextInt(DEFAULT_BOARD_TYPE);
 		// 随机生成AbstractBoard的子类实例
 		switch (index)
 		{

@@ -11,9 +11,10 @@ import android.graphics.Point;
 /**
  * @author huangzhifei
  * @ClassName: LinkInfo
- * @Description: http://blog.csdn.net/ac_huang，连接信息类
+ * @Description: http://blog.csdn.net/ac_huang，连接信息类，单一的用来存储连接点
  * @date 2014-12-9 下午9:37:41 
  */
+
 public class LinkInfo {
 
 	private List<Point> points = new ArrayList<Point>();
