@@ -115,10 +115,10 @@ public class GameServiceImpl implements GameService {
 		}
 		// 获取relativeX座标在Piece[][]数组中的第一维的索引值
 		// 第二个参数为每张图片的宽
-		int indexX = getIndex(relativeX, GameConf.PIECE_WIDTH);
+		int indexX = getIndex(relativeX, GameConf.PIECE_WIDTH+GameConf.PIECE_SPACING);
 		// 获取relativeY座标在Piece[][]数组中的第二维的索引值
 		// 第二个参数为每张图片的高
-		int indexY = getIndex(relativeY, GameConf.PIECE_HEIGHT);
+		int indexY = getIndex(relativeY, GameConf.PIECE_HEIGHT+GameConf.PIECE_SPACING);
 		// 这两个索引比数组的最小索引还小, 返回null
 		if (indexX < 0 || indexY < 0)
 		{
@@ -157,7 +157,7 @@ public class GameServiceImpl implements GameService {
 		if (p1.getIndexY() == p2.getIndexY())
 		{
 			// 它们在同一行并可以相连
-			if (!isXBlock(p1Point, p2Point, GameConf.PIECE_WIDTH))
+			if (!isXBlock(p1Point, p2Point, GameConf.PIECE_WIDTH+GameConf.PIECE_SPACING))
 			{
 				return new LinkInfo(p1Point, p2Point);
 			}
@@ -165,7 +165,7 @@ public class GameServiceImpl implements GameService {
 		// 如果两个Piece在同一列
 		if (p1.getIndexX() == p2.getIndexX())
 		{
-			if (!isYBlock(p1Point, p2Point, GameConf.PIECE_HEIGHT))
+			if (!isYBlock(p1Point, p2Point, GameConf.PIECE_HEIGHT+GameConf.PIECE_SPACING))
 			{
 				// 它们之间没有真接障碍, 没有转折点
 				return new LinkInfo(p1Point, p2Point);
@@ -174,7 +174,7 @@ public class GameServiceImpl implements GameService {
 		// 有一个转折点的情况
 		// 获取两个点的直角相连的点, 即只有一个转折点
 		Point cornerPoint = getCornerPoint(p1Point, p2Point,
-			GameConf.PIECE_WIDTH, GameConf.PIECE_HEIGHT);
+			GameConf.PIECE_WIDTH+GameConf.PIECE_SPACING, GameConf.PIECE_HEIGHT+GameConf.PIECE_SPACING);
 		if (cornerPoint != null)
 		{
 			return new LinkInfo(p1Point, cornerPoint, p2Point);
@@ -182,7 +182,7 @@ public class GameServiceImpl implements GameService {
 		// 该map的key存放第一个转折点, value存放第二个转折点,
 		// map的size()说明有多少种可以连的方式
 		Map<Point, Point> turns = getLinkPoints(p1Point, p2Point,
-			GameConf.PIECE_WIDTH, GameConf.PIECE_WIDTH);
+			GameConf.PIECE_WIDTH+GameConf.PIECE_SPACING, GameConf.PIECE_WIDTH+GameConf.PIECE_SPACING);
 		if (turns.size() != 0)
 		{
 			return getShortcut(p1Point, p2Point, turns,

@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 	
 	// 游戏配置对象
 	private GameConf config;
-	
+	// 游戏服务
 	private GameService gameService;
 	// 游戏界面
 	private GameView gameView;
@@ -46,11 +46,12 @@ public class MainActivity extends Activity {
 	// 记录是否处于游戏状态
 	private boolean isPlaying;
 	// 播放音效的SoundPool
-	SoundPool soundPool = new SoundPool(2 
-		, AudioManager.STREAM_SYSTEM , 8);
+	SoundPool soundPool = new SoundPool(1
+		, AudioManager.STREAM_SYSTEM , 4);
 	int dis;
 	// 记录已经选中的方块
 	private Piece selected = null;
+	
 	private Handler handler = new Handler()
 	{
 		public void handleMessage(Message msg)
@@ -78,7 +79,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		
+		//加载ui界面
 		setContentView(R.layout.activity_main);
 		// 初始化界面
 		init();
@@ -88,7 +89,7 @@ public class MainActivity extends Activity {
 	private void init()
 	{
 		// 配置游戏面板参数
-		config = new GameConf(12, 12, 6, 10 , GameConf.DEFAULT_TIME, this);
+		config = new GameConf(10, 10, 6, 10 , GameConf.DEFAULT_TIME, this);
 		// 得到游戏区域对象
 		gameView = (GameView)findViewById(R.id.gameView);
 		// 获取显示剩余时间的文本框
@@ -236,7 +237,7 @@ public class MainActivity extends Activity {
 		}
 		isPlaying = true;	
 		this.timer = new Timer();
-		// 启动计时器 ， 每隔1秒发送一次消息
+		// 启动计时器，每隔1秒发送一次消息
 		this.timer.schedule(new TimerTask()
 		{
 			public void run()

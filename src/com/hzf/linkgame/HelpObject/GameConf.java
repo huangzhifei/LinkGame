@@ -16,9 +16,10 @@ public class GameConf {
 	// 设置连连看的每个方块的图片的宽、高
 	public static final int PIECE_WIDTH = 40;
 	public static final int PIECE_HEIGHT = 40;
-	
+	//每张图像之间的间隔
+	public static final int PIECE_SPACING = 15;
 	// 记录游戏的默认时长为100s
-	public static final int DEFAULT_TIME = 100;
+	public static final int DEFAULT_TIME = 160;
 	
 	//二维地图board的大小，行数
 	private int xSize;
@@ -70,6 +71,10 @@ public class GameConf {
 		return beginImageY;
 	}
 	
+//	public final int getSpacing()
+//	{
+//		return PIECE_SPACING;
+//	}
 	public final Context getContext(){
 		return context;
 	}

@@ -23,6 +23,7 @@ public abstract class AbstractBoard {
 	 */
 	protected abstract List<Piece>createPiece(GameConf config, Piece[][] pieces);
 	
+	//所有的子类都可以用这个，这就是设置成抽象类的好处
 	public Piece[][] create(GameConf config)
 	{
 		Piece[][] pieces = new Piece[config.getXSize()][config.getYSize()];
@@ -32,8 +33,9 @@ public abstract class AbstractBoard {
 		List<PieceImage> playImages = ImageUtil.getPlayImages(config.getContext(),
 				notNullPieces.size());
 		
-		int imageWidth = playImages.get(0).getImage().getWidth();
-		int imageHeight = playImages.get(0).getImage().getHeight();
+		//所有的图像都是一样大小的，只需要随便获取一张的属性就ok了
+		int imageWidth = playImages.get(0).getImage().getWidth()+config.PIECE_SPACING;
+		int imageHeight = playImages.get(0).getImage().getHeight()+config.PIECE_SPACING;
 		
 		for(int i = 0;i < notNullPieces.size(); ++ i)
 		{
